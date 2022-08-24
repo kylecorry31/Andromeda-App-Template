@@ -18,6 +18,7 @@ An Android template using Andromeda
 - Commonly used icons
 - Notification channel registration
 - Room
+- Preference versioning
 
 # How to use
 1. Create a fork of this repo
