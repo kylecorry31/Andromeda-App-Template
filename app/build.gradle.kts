@@ -63,6 +63,7 @@ dependencies {
     implementation("com.google.android.flexbox:flexbox:3.0.0")
     implementation("androidx.gridlayout:gridlayout:1.0.0")
     implementation("androidx.preference:preference-ktx:1.2.0")
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
