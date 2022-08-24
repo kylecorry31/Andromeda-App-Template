@@ -16,6 +16,8 @@ An Android template using Andromeda
 - Standard Android/AndroidX libraries
 - Vector app icon
 - Commonly used icons
+- Notification channel registration
+- Room
 
 # How to use
 1. Create a fork of this repo
