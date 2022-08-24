@@ -7,13 +7,12 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.kylecorry.andromeda.core.system.Resources
+import com.kylecorry.andromeda.core.ui.Colors
 import com.kylecorry.andromeda.core.ui.setCompoundDrawables
 import com.kylecorry.andromeda.list.ListView
 import com.kylecorry.andromeda.pickers.Pickers
 import com.kylecorry.andromeda_template.R
 import com.kylecorry.andromeda_template.databinding.ListItemPlainIconMenuBinding
-import com.kylecorry.andromeda_template.ui.ColorUtils
-import com.kylecorry.andromeda_template.ui.CustomUiUtils
 
 class AndromedaListView(context: Context, attrs: AttributeSet?) : RecyclerView(context, attrs) {
 
@@ -44,12 +43,12 @@ class AndromedaListView(context: Context, attrs: AttributeSet?) : RecyclerView(c
                 val tag = listItem.tags.first()
                 binding.tag.isVisible = true
                 val foregroundColor =
-                    ColorUtils.mostContrastingColor(Color.WHITE, Color.BLACK, tag.color)
+                    Colors.mostContrastingColor(Color.WHITE, Color.BLACK, tag.color)
                 when (tag.icon) {
                     is ResourceListIcon -> {
                         binding.tag.statusImage.isVisible = true
                         binding.tag.statusImage.setImageResource(tag.icon.id)
-                        CustomUiUtils.setImageColor(binding.tag.statusImage, foregroundColor)
+                        Colors.setImageColor(binding.tag.statusImage, foregroundColor)
                     }
                     else -> {
                         binding.tag.statusImage.isVisible = false
@@ -68,7 +67,7 @@ class AndromedaListView(context: Context, attrs: AttributeSet?) : RecyclerView(c
                 is ResourceListIcon -> {
                     binding.icon.isVisible = true
                     binding.icon.setImageResource(listItem.icon.id)
-                    CustomUiUtils.setImageColor(binding.icon, listItem.icon.tint)
+                    Colors.setImageColor(binding.icon, listItem.icon.tint)
                 }
                 else -> {
                     binding.icon.isVisible = false
@@ -78,7 +77,7 @@ class AndromedaListView(context: Context, attrs: AttributeSet?) : RecyclerView(c
                 is ResourceListIcon -> {
                     binding.trailingIconBtn.isVisible = true
                     binding.trailingIconBtn.setImageResource(listItem.trailingIcon.id)
-                    CustomUiUtils.setImageColor(binding.trailingIconBtn, listItem.trailingIcon.tint)
+                    Colors.setImageColor(binding.trailingIconBtn, listItem.trailingIcon.tint)
                     binding.trailingIconBtn.setOnClickListener { listItem.trailingIconAction() }
                 }
                 else -> {
@@ -121,7 +120,7 @@ class AndromedaListView(context: Context, attrs: AttributeSet?) : RecyclerView(c
                                 Resources.dp(context, 12f).toInt(),
                                 left = data.icon.id
                             )
-                            CustomUiUtils.setImageColor(dataViews[i], data.icon.tint)
+                            Colors.setImageColor(dataViews[i], data.icon.tint)
                         }
                         else -> {
                             dataViews[i].setCompoundDrawables(null, null, null, null)
