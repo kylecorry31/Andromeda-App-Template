@@ -19,6 +19,7 @@ An Android template using Andromeda
 - Notification channel registration
 - Room
 - Preference versioning
+- Enhanced list view
 
 # How to use
 1. Create a fork of this repo
