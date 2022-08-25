@@ -40,7 +40,7 @@ class StatusBadgeView(context: Context, attrs: AttributeSet?) : LinearLayout(con
                 R.styleable.StatusBadgeView_foregroundTint,
                 Resources.androidTextColorSecondary(it)
             )
-            setImageResource(a.getResourceId(R.styleable.StatusBadgeView_icon, R.drawable.info))
+            setImageResource(a.getResourceId(R.styleable.StatusBadgeView_icon, R.drawable.ic_info))
             a.recycle()
         }
     }

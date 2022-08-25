@@ -9,4 +9,8 @@
         android:id="@+id/action_main"
         android:name="com.kylecorry.andromeda_template.ui.MainFragment"
         android:label="MainFragment" />
+    <fragment
+        android:id="@+id/action_settings"
+        android:name="com.kylecorry.andromeda_template.ui.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>
