@@ -5,12 +5,12 @@
         <item name="android:statusBarColor">#90000000</item>
 
         <!--Primary color-->
-        <item name="colorPrimary">@color/orange_40</item>
-        <item name="colorOnPrimary">@color/orange_10</item>
+        <item name="colorPrimary">@color/primary_40</item>
+        <item name="colorOnPrimary">@color/primary_10</item>
 
         <!--Containers-->
-        <item name="colorPrimaryContainer">@color/orange_40_transparent</item>
-        <item name="colorOnPrimaryContainer">@color/orange_10</item>
+        <item name="colorPrimaryContainer">@color/primary_40_transparent</item>
+        <item name="colorOnPrimaryContainer">@color/primary_10</item>
         <item name="colorSecondaryContainer">?attr/colorPrimaryContainer</item>
         <item name="colorTertiaryContainer">?attr/colorPrimaryContainer</item>
         <item name="colorOnSecondaryContainer">?attr/colorOnPrimaryContainer</item>
@@ -21,7 +21,7 @@
         <item name="elevationOverlayEnabled">false</item>
         <item name="colorSurface">?android:colorBackgroundFloating</item>
 
-        <item name="colorAccent">@color/orange_40</item>
+        <item name="colorAccent">@color/primary_40</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
         <item name="materialButtonStyle">@style/ThemeOverlay.App.ElevatedButton</item>
@@ -84,7 +84,7 @@
     </style>
 
     <style name="SnackBarButtonTheme" parent="@style/Widget.MaterialComponents.Button.TextButton.Snackbar">
-        <item name="android:textColor">@color/orange_40</item>
+        <item name="android:textColor">@color/primary_40</item>
     </style>
 
     <style name="Widget.App.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">

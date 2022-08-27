@@ -21,6 +21,8 @@ class AndromedaListView(context: Context, attrs: AttributeSet?) : RecyclerView(c
             val binding = ListItemPlainIconMenuBinding.bind(view)
             binding.title.text = listItem.title
 
+            binding.title.maxLines = listItem.titleMaxLines
+
             if (listItem.checkbox != null) {
                 binding.checkbox.isChecked = listItem.checkbox.checked
                 binding.checkbox.setOnClickListener { listItem.checkbox.onClick() }
@@ -29,11 +31,7 @@ class AndromedaListView(context: Context, attrs: AttributeSet?) : RecyclerView(c
                 binding.checkbox.isVisible = false
             }
 
-            if (listItem.singleLineSubtitle) {
-                binding.description.maxLines = 1
-            } else {
-                binding.description.maxLines = Integer.MAX_VALUE
-            }
+            binding.description.maxLines = listItem.subtitleMaxLines
 
             binding.description.text = listItem.subtitle
             binding.description.isVisible = listItem.subtitle != null

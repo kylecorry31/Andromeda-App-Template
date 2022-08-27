@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("kotlin-parcelize")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -67,13 +68,17 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.room:room-runtime:2.4.3")
-    implementation("androidx.room:room-ktx:2.4.3")
     implementation("androidx.lifecycle:lifecycle-service:2.5.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.5.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
     implementation("com.google.android.material:material:1.6.1")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.6")
+
+    // Room
+    kapt("androidx.room:room-compiler:2.4.3")
+    implementation("androidx.room:room-runtime:2.4.3")
+    implementation("androidx.room:room-ktx:2.4.3")
+
     // Sol
     implementation("com.github.kylecorry31:sol:6.0.0-beta06")
 
@@ -89,6 +94,9 @@ dependencies {
     implementation("com.github.kylecorry31.andromeda:list:$andromedaVersion")
     implementation("com.github.kylecorry31.andromeda:files:$andromedaVersion")
 
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.43.2")
+    kapt("com.google.dagger:hilt-android-compiler:2.43.2")
 
     // Testing
     testImplementation("junit:junit:4.13.2")
@@ -99,4 +107,9 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
     testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

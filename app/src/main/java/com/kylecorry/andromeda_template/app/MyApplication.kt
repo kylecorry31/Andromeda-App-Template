@@ -3,7 +3,9 @@ package com.kylecorry.andromeda_template.app
 import android.app.Application
 import com.kylecorry.andromeda.preferences.PreferenceMigration
 import com.kylecorry.andromeda.preferences.PreferenceMigrator
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class MyApplication : Application() {
 
     override fun onCreate() {

@@ -13,7 +13,9 @@ import com.google.android.material.color.DynamicColors
 import com.kylecorry.andromeda.core.tryOrNothing
 import com.kylecorry.andromeda.fragments.AndromedaActivity
 import com.kylecorry.andromeda_template.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AndromedaActivity() {
 
     private lateinit var navController: NavController

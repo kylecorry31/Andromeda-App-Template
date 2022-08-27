@@ -1,4 +1,4 @@
-package com.kylecorry.andromeda_template.app
+package com.kylecorry.andromeda_template.infrastructure.persistence
 
 import android.content.Context
 import androidx.room.Database
@@ -10,13 +10,13 @@ import androidx.room.TypeConverters
  * The Room database for this app
  */
 @Database(
-    entities = [],
+    entities = [SampleEntity::class],
     version = 1,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    // Add DAOs here as abstract methods
+    abstract fun sampleDao(): SampleDao
 
     companion object {
         private const val DB_NAME = "andromeda_db"

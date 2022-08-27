@@ -1,6 +1,5 @@
 package com.kylecorry.andromeda_template.ui
 
-import android.content.Context
 import com.kylecorry.andromeda.alerts.Alerts
 import com.kylecorry.andromeda.core.system.CurrentApp
 import com.kylecorry.andromeda.core.system.Intents
@@ -11,16 +10,22 @@ import com.kylecorry.andromeda_template.R
 object ExceptionHandler {
 
     fun initialize(activity: MainActivity) {
-        Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
-            recordException(activity, throwable)
-            tryOrLog {
-                CurrentApp.restart(activity)
-            }
+        if (!LocalFiles.getFile(activity, FILENAME, create = false).exists()) {
+            setupHandler(activity)
         }
         handleLastException(activity)
     }
 
-    private fun handleLastException(context: Context) {
+    private fun setupHandler(context: MainActivity) {
+        Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
+            recordException(context, throwable)
+            tryOrLog {
+                CurrentApp.restart(context)
+            }
+        }
+    }
+
+    private fun handleLastException(context: MainActivity) {
         val file = LocalFiles.getFile(context, FILENAME, create = false)
         if (!file.exists()) {
             return
@@ -44,6 +49,8 @@ object ExceptionHandler {
                     body
                 )
                 context.startActivity(intent)
+            } else {
+                setupHandler(context)
             }
         }
     }
