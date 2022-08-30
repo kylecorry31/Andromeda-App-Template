@@ -1,6 +1,8 @@
 package com.kylecorry.andromeda_template.ui
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import com.kylecorry.andromeda.fragments.BoundFragment
 import com.kylecorry.andromeda_template.databinding.FragmentMainBinding
@@ -12,6 +14,10 @@ class MainFragment : BoundFragment<FragmentMainBinding>() {
 
     @Inject
     lateinit var formatter: FormatService
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 
     override fun generateBinding(
         layoutInflater: LayoutInflater,
