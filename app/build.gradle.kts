@@ -95,7 +95,7 @@ dependencies {
     implementation("com.github.kylecorry31.andromeda:files:$andromedaVersion")
 
     // Ceres
-    implementation("com.github.kylecorry31:ceres:0.1.1")
+    implementation("com.github.kylecorry31:ceres:0.1.2")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.43.2")
