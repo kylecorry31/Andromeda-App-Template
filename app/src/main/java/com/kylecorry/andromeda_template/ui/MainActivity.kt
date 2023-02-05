@@ -1,18 +1,15 @@
 package com.kylecorry.andromeda_template.ui
 
-import android.Manifest
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.color.DynamicColors
 import com.kylecorry.andromeda.core.tryOrNothing
 import com.kylecorry.andromeda.fragments.AndromedaActivity
 import com.kylecorry.andromeda_template.R
+import com.kylecorry.andromeda_template.app.NavigationUtils.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +29,7 @@ class MainActivity : AndromedaActivity() {
 
         navController = findNavController()
         bottomNavigation = findViewById(R.id.bottom_navigation)
-        bottomNavigation.setupWithNavController(navController)
+        bottomNavigation.setupWithNavController(navController, false)
 
         requestPermissions(permissions) {
             navController.navigate(R.id.action_main)
