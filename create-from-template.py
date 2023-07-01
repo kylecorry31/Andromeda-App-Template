@@ -83,3 +83,6 @@ with open(f"{dir_name}/LICENSE", "r") as f:
 # Rename the app in .idea folder
 with open(f"{dir_name}/.idea/.name", "w") as f:
     f.write(app_name)
+
+# Remove the create-from-template.py script
+os.remove(f"{dir_name}/create-from-template.py")
