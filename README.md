@@ -22,8 +22,6 @@ An Android template using Andromeda
 - Enhanced list view
 
 # How to use
-1. Create a fork of this repo or copy its files into your repo
-2. Rename the package
-3. Modify app colors and name
+1. Download the [create-from-template.py](./create-from-template.py) file, run it and answer the prompts
+3. Modify app colors as needed
 4. Replace app icon (regenerate?)
-5. Write app
