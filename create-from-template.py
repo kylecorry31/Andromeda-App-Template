@@ -4,19 +4,6 @@ import shutil
 import datetime
 import re
 
-app_name = input("App Name: ")
-package_name = input("Package Name: ")
-default_dir_name = app_name.replace(' ', '-').replace('.', '-')
-dir_name = input("Directory Name [" + default_dir_name + "]: ")
-
-if dir_name == "":
-    dir_name = default_dir_name
-
-if os.path.exists(dir_name):
-    should_overwrite = input("Directory already exists. Overwrite? [y/N]: ")
-    if should_overwrite.lower() != "y":
-        exit()
-
 def clone(repo_url, dir_name):
     os.system(f"git clone {repo_url} {dir_name}")
 
@@ -28,6 +15,23 @@ def on_rm_error(func, path, exc_info):
 def delete_dir(dir_name):
     # Delete the directory and all its contents using os.rmdir
     shutil.rmtree(dir_name, onerror=on_rm_error)
+
+app_name = input("App Name: ")
+package_name = input("Package Name: ")
+default_dir_name = app_name.replace(' ', '-').replace('.', '-')
+dir_name = input("Directory Name [" + default_dir_name + "]: ")
+
+
+if dir_name == "":
+    dir_name = default_dir_name
+
+if os.path.exists(dir_name):
+    should_overwrite = input("Directory already exists. Overwrite? [Y/N]: ")
+    if should_overwrite.lower() != "y":
+        exit()
+    
+    # Delete the existing directory
+    delete_dir(dir_name)
 
 # Clone the template
 clone("https://github.com/kylecorry31/Andromeda-App-Template", dir_name)
