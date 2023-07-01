@@ -75,3 +75,7 @@ with open(f"{dir_name}/LICENSE", "r") as f:
     contents = re.sub(r"202\d", str(datetime.datetime.now().year), contents)
     with open(f"{dir_name}/LICENSE", "w") as f:
         f.write(contents)
+
+# Rename the app in .idea folder
+with open(f"{dir_name}/.idea/.name", "w") as f:
+    f.write(app_name)
