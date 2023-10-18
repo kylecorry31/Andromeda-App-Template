@@ -53,6 +53,8 @@ for root, dirs, files in os.walk(dir_name):
 
 # Rename the package folder
 os.rename(f"{dir_name}/app/src/main/java/com/kylecorry/andromeda_template", f"{dir_name}/app/src/main/java/{package_name.replace('.', '/')}")
+os.rename(f"{dir_name}/app/src/test/java/com/kylecorry/andromeda_template", f"{dir_name}/app/src/test/java/{package_name.replace('.', '/')}")
+os.rename(f"{dir_name}/app/src/androidTest/java/com/kylecorry/andromeda_template", f"{dir_name}/app/src/androidTest/java/{package_name.replace('.', '/')}")
 
 # Rename the app_name in strings.xml
 with open(f"{dir_name}/app/src/main/res/values/strings.xml", "r") as f:
