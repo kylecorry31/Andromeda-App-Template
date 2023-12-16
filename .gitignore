@@ -84,3 +84,7 @@ lint/outputs/
 lint/tmp/
 # lint/reports/
 .idea/misc.xml
+.idea/appInsightsSettings.xml
+.idea/deploymentTargetDropDown.xml
+
+build-cache/

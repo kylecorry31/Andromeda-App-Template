@@ -18,7 +18,9 @@ object ExceptionHandler {
                     FragmentDetailsBugReportGenerator(),
                     StackTraceBugReportGenerator()
                 )
-            )
+            ),
+            shouldRestartApp = false,
+            shouldWrapSystemExceptionHandler = true
         ) { context, log ->
             Log.e(context.getString(R.string.app_name), log)
             BugReportEmailMessage(
