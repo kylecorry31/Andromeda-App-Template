@@ -1,38 +1,53 @@
 package com.kylecorry.andromeda_template.ui
 
+import android.content.Context
 import android.util.Log
+import com.kylecorry.andromeda.alerts.Alerts
+import com.kylecorry.andromeda.core.system.Intents
 import com.kylecorry.andromeda.exceptions.*
 import com.kylecorry.andromeda_template.R
 import com.kylecorry.andromeda_template.infrastructure.errors.FragmentDetailsBugReportGenerator
 
 object ExceptionHandler {
 
-    fun initialize(activity: MainActivity) {
-        val handler = EmailExceptionHandler(
-            activity,
-            AggregateBugReportGenerator(
-                listOf(
-                    AppDetailsBugReportGenerator(activity.getString(R.string.app_name)),
-                    AndroidDetailsBugReportGenerator(),
-                    DeviceDetailsBugReportGenerator(),
-                    FragmentDetailsBugReportGenerator(),
-                    StackTraceBugReportGenerator()
-                )
-            ),
-            shouldRestartApp = false,
-            shouldWrapSystemExceptionHandler = true
-        ) { context, log ->
-            Log.e(context.getString(R.string.app_name), log)
-            BugReportEmailMessage(
+    fun initialize(context: Context) {
+        val handler = CustomExceptionHandler(context)
+        handler.bind()
+
+        CustomExceptionHandler.error?.let {
+            Log.e("Trail Sense", it)
+            val message = BugReportEmailMessage(
                 context.getString(R.string.error_occurred),
-                context.getString(R.string.error_occurred_message),
+                context.getString(R.string.error_occurred_message) + if (BuildConfig.DEBUG) {
+                    "\n\n$it"
+                } else {
+                    ""
+                },
                 context.getString(R.string.email_developer),
                 context.getString(android.R.string.cancel),
                 context.getString(R.string.email),
                 "Error in ${context.getString(R.string.app_name)}"
             )
+            Alerts.dialog(
+                context,
+                message.title,
+                message.description,
+                okText = message.emailAction,
+                cancelText = message.ignoreAction
+            ) { cancelled ->
+                if (!cancelled) {
+                    val intent = Intents.email(
+                        message.emailAddress,
+                        message.emailSubject,
+                        it
+                    )
+
+                    context.startActivity(intent)
+                }
+            }
         }
-        handler.bind()
+
+        CustomExceptionHandler.error = null
     }
 
 }

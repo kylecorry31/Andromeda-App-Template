@@ -12,6 +12,7 @@ plugins {
 }
 
 android {
+    namespace = "com.kylecorry.andromeda_template"
     compileSdk = 34
 
     defaultConfig {
@@ -70,69 +71,63 @@ android {
     lint {
         abortOnError = false
     }
-    namespace = "com.kylecorry.andromeda_template"
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.google.android.flexbox:flexbox:3.0.0")
-    implementation("androidx.gridlayout:gridlayout:1.0.0")
-    implementation("androidx.preference:preference-ktx:1.2.1")
-    implementation("androidx.work:work-runtime-ktx:2.9.0")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-service:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-    implementation("com.google.android.material:material:1.10.0")
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.flexbox)
+    implementation(libs.androidx.gridlayout)
+    implementation(libs.androidx.preference.ktx)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.lifecycle.service)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.material)
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     // Room
-    val roomVersion = "2.6.1"
-    ksp("androidx.room:room-compiler:${roomVersion}")
-    implementation("androidx.room:room-runtime:${roomVersion}")
-    implementation("androidx.room:room-ktx:${roomVersion}")
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
 
     // Sol
-    implementation("com.github.kylecorry31:sol:8.0.1")
+    implementation(libs.sol)
 
     // Andromeda
-    val andromedaVersion = "50983ef77d"
-    implementation("com.github.kylecorry31.andromeda:core:$andromedaVersion")
-    implementation("com.github.kylecorry31.andromeda:fragments:$andromedaVersion")
-    implementation("com.github.kylecorry31.andromeda:exceptions:$andromedaVersion")
-    implementation("com.github.kylecorry31.andromeda:preferences:$andromedaVersion")
-    implementation("com.github.kylecorry31.andromeda:permissions:$andromedaVersion")
-    implementation("com.github.kylecorry31.andromeda:notify:$andromedaVersion")
-    implementation("com.github.kylecorry31.andromeda:alerts:$andromedaVersion")
-    implementation("com.github.kylecorry31.andromeda:pickers:$andromedaVersion")
-    implementation("com.github.kylecorry31.andromeda:list:$andromedaVersion")
-    implementation("com.github.kylecorry31.andromeda:files:$andromedaVersion")
-
-    // Ceres
-    val ceresVersion = "e45e6958fb"
-    implementation("com.github.kylecorry31:ceres:$ceresVersion")
+    implementation(libs.andromeda.core)
+    implementation(libs.andromeda.fragments)
+    implementation(libs.andromeda.exceptions)
+    implementation(libs.andromeda.preferences)
+    implementation(libs.andromeda.permissions)
+    implementation(libs.andromeda.notify)
+    implementation(libs.andromeda.alerts)
+    implementation(libs.andromeda.pickers)
+    implementation(libs.andromeda.list)
+    implementation(libs.andromeda.files)
+    implementation(libs.andromeda.views)
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.49")
-    ksp("com.google.dagger:hilt-android-compiler:2.49")
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 
     // Hilt for Jetpack components
-    implementation("androidx.hilt:hilt-work:1.1.0")
-    ksp("androidx.hilt:hilt-compiler:1.1.0")
+    implementation(libs.androidx.hilt.work)
+    ksp(libs.androidx.hilt.compiler)
 
     // Testing
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    testImplementation("org.junit.platform:junit-platform-runner:1.10.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.1")
-    testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.junit.platform.runner)
+    testImplementation(libs.junit.jupiter.api)
+    testImplementation(libs.junit.jupiter.params)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    testImplementation(libs.mockito.kotlin)
 }
 
 // This is a workaround to get viewbinding to work with ksp + hilt (https://github.com/google/dagger/issues/4097)
