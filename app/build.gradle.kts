@@ -1,6 +1,3 @@
-import com.android.build.gradle.internal.tasks.databinding.DataBindingGenBaseClassesTask
-import org.gradle.configurationcache.extensions.capitalized
-import org.jetbrains.kotlin.gradle.tasks.AbstractKotlinCompileTool
 import java.time.LocalDate
 
 plugins {
@@ -28,7 +25,6 @@ android {
         generateLocaleConfig = true
     }
     buildFeatures {
-        viewBinding = true
         buildConfig = true
     }
     buildTypes {
