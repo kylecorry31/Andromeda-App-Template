@@ -86,5 +86,11 @@ lint/tmp/
 .idea/misc.xml
 .idea/appInsightsSettings.xml
 .idea/deploymentTargetDropDown.xml
+.idea/deploymentTargetSelector.xml
+.idea/runConfigurations.xml
+.idea/copilot
+.idea/other.xml
+.kotlin/
+
 
 build-cache/

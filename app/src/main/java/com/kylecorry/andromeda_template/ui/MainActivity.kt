@@ -1,57 +1,39 @@
 package com.kylecorry.andromeda_template.ui
 
 import android.content.Intent
-import android.content.res.Configuration
-import android.graphics.Color
 import android.os.Bundle
 import android.view.ViewGroup
-import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.kylecorry.andromeda.core.system.Resources
 import com.kylecorry.andromeda.core.tryOrNothing
 import com.kylecorry.andromeda.fragments.AndromedaActivity
 import com.kylecorry.andromeda.fragments.ColorTheme
 import com.kylecorry.andromeda_template.R
 import com.kylecorry.andromeda_template.app.NavigationUtils.setupWithNavController
-import com.kylecorry.andromeda_template.databinding.ActivityMainBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : AndromedaActivity() {
 
-    private var _binding: ActivityMainBinding? = null
-    private val binding: ActivityMainBinding
-        get() = _binding!!
-
     private val permissions = mutableListOf<String>()
+
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         ExceptionHandler.initialize(this)
         setColorTheme(ColorTheme.System, true)
-        enableEdgeToEdge(
-            navigationBarStyle = if (isDarkTheme()) {
-                SystemBarStyle.dark(Resources.androidBackgroundColorSecondary(this))
-            } else {
-                SystemBarStyle.light(
-                    Resources.androidBackgroundColorSecondary(this),
-                    Color.BLACK
-                )
-            }
-        )
+        enableEdgeToEdge()
 
         super.onCreate(savedInstanceState)
 
-        _binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        binding.bottomNavigation.setupWithNavController(findNavController(), false)
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottomNavigationView.setupWithNavController(findNavController(), false)
 
         bindLayoutInsets()
 
@@ -68,7 +50,7 @@ class MainActivity : AndromedaActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        binding.bottomNavigation.selectedItemId = savedInstanceState.getInt(
+        bottomNavigationView.selectedItemId = savedInstanceState.getInt(
             "page",
             R.id.action_main
         )
@@ -82,7 +64,7 @@ class MainActivity : AndromedaActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt("page", binding.bottomNavigation.selectedItemId)
+        outState.putInt("page", bottomNavigationView.selectedItemId)
         findNavController().currentBackStackEntry?.arguments?.let {
             outState.putBundle("navigation_arguments", it)
         }
@@ -92,22 +74,16 @@ class MainActivity : AndromedaActivity() {
     }
 
     private fun bindLayoutInsets() {
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, windowInsets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.coordinator)) { v, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.updateLayoutParams<ViewGroup.MarginLayoutParams> {
                 topMargin = insets.top
-                bottomMargin = insets.bottom
             }
-            WindowInsetsCompat.CONSUMED
+            windowInsets
         }
     }
 
     private fun findNavController(): NavController {
         return (supportFragmentManager.findFragmentById(R.id.fragment_holder) as NavHostFragment).navController
-    }
-
-    private fun isDarkTheme(): Boolean {
-        return resources.configuration.uiMode and
-                Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
     }
 }

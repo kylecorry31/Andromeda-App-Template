@@ -1,32 +1,29 @@
 [versions]
-androidApplication = "8.3.1"
-andromedaVersion = "7.0.0"
-constraintlayout = "2.1.4"
-coreKtx = "1.12.0"
-appcompat = "1.6.1"
-desugar_jdk_libs = "2.0.4"
-espressoCoreVersion = "3.5.1"
+androidApplication = "8.9.1"
+andromedaVersion = "13.2.2"
+constraintlayout = "2.2.1"
+coreKtx = "1.15.0"
+appcompat = "1.7.0"
+desugar_jdk_libs = "2.1.5"
+espressoCoreVersion = "3.6.1"
 gridlayout = "1.0.0"
 flexbox = "3.0.0"
-hiltAndroidCompilerVersion = "2.49"
-hiltAndroidVersion = "2.49"
-hiltCompilerVersion = "1.2.0"
-hiltWorkVersion = "1.2.0"
-junit5Version = "5.10.2"
-junit = "1.1.5"
-junitPlatformRunner = "1.10.2"
+junit5Version = "5.11.3"
+junit = "1.2.1"
+junitPlatformRunner = "1.11.3"
 junitVersion = "4.13.2"
-kotlinAndroidVersion = "1.9.21"
+kotlinAndroidVersion = "2.0.0"
 kotlinxCoroutinesAndroid = "1.8.0"
-ksp = "1.9.21-1.0.15"
+ksp = "2.0.0-1.0.21"
 legacySupportV4 = "1.0.0"
-lifecycleService = "2.7.0"
+lifecycleService = "2.8.7"
+luna = "0.3.6"
 material = "1.10.0"
 mockitoKotlinVersion = "5.1.0"
-navigationFragmentKtx = "2.7.7"
+navigationFragmentKtx = "2.8.9"
 roomVersion = "2.6.1"
-sol = "9.4.0"
-workRuntimeKtx = "2.9.0"
+sol = "10.3.0"
+workRuntimeKtx = "2.10.0"
 preferenceKtx = "1.2.1"
 
 [libraries]
@@ -34,8 +31,6 @@ androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayo
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCoreVersion" }
-androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltCompilerVersion" }
-androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltWorkVersion" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junit" }
 androidx-legacy-support-v4 = { module = "androidx.legacy:legacy-support-v4", version.ref = "legacySupportV4" }
 androidx-lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", version.ref = "lifecycleService" }
@@ -48,33 +43,31 @@ androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
 androidx-preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preferenceKtx" }
 androidx-gridlayout = { module = "androidx.gridlayout:gridlayout", version.ref = "gridlayout" }
-andromeda-alerts = { module = "com.github.kylecorry31.andromeda:alerts", version.ref = "andromedaVersion" }
-andromeda-core = { module = "com.github.kylecorry31.andromeda:core", version.ref = "andromedaVersion" }
-andromeda-exceptions = { module = "com.github.kylecorry31.andromeda:exceptions", version.ref = "andromedaVersion" }
-andromeda-files = { module = "com.github.kylecorry31.andromeda:files", version.ref = "andromedaVersion" }
-andromeda-fragments = { module = "com.github.kylecorry31.andromeda:fragments", version.ref = "andromedaVersion" }
-andromeda-list = { module = "com.github.kylecorry31.andromeda:list", version.ref = "andromedaVersion" }
-andromeda-pickers = { module = "com.github.kylecorry31.andromeda:pickers", version.ref = "andromedaVersion" }
-andromeda-notify = { module = "com.github.kylecorry31.andromeda:notify", version.ref = "andromedaVersion" }
-andromeda-permissions = { module = "com.github.kylecorry31.andromeda:permissions", version.ref = "andromedaVersion" }
-andromeda-preferences = { module = "com.github.kylecorry31.andromeda:preferences", version.ref = "andromedaVersion" }
-andromeda-views = { module = "com.github.kylecorry31.andromeda:views", version.ref = "andromedaVersion" }
+andromeda-alerts = { module = "com.kylecorry.andromeda:alerts", version.ref = "andromedaVersion" }
+andromeda-core = { module = "com.kylecorry.andromeda:core", version.ref = "andromedaVersion" }
+andromeda-exceptions = { module = "com.kylecorry.andromeda:exceptions", version.ref = "andromedaVersion" }
+andromeda-files = { module = "com.kylecorry.andromeda:files", version.ref = "andromedaVersion" }
+andromeda-fragments = { module = "com.kylecorry.andromeda:fragments", version.ref = "andromedaVersion" }
+andromeda-list = { module = "com.kylecorry.andromeda:list", version.ref = "andromedaVersion" }
+andromeda-pickers = { module = "com.kylecorry.andromeda:pickers", version.ref = "andromedaVersion" }
+andromeda-notify = { module = "com.kylecorry.andromeda:notify", version.ref = "andromedaVersion" }
+andromeda-permissions = { module = "com.kylecorry.andromeda:permissions", version.ref = "andromedaVersion" }
+andromeda-preferences = { module = "com.kylecorry.andromeda:preferences", version.ref = "andromedaVersion" }
+andromeda-views = { module = "com.kylecorry.andromeda:views", version.ref = "andromedaVersion" }
 desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompilerVersion" }
-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroidVersion" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5Version" }
 junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit5Version" }
 junit-platform-runner = { module = "org.junit.platform:junit-platform-runner", version.ref = "junitPlatformRunner" }
 junit = { module = "junit:junit", version.ref = "junitVersion" }
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5Version" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+luna = { module = "com.kylecorry:luna", version.ref = "luna" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoKotlinVersion" }
-sol = { module = "com.github.kylecorry31:sol", version.ref = "sol" }
+sol = { module = "com.kylecorry:sol", version.ref = "sol" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidApplication" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinAndroidVersion" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroidVersion" }

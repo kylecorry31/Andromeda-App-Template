@@ -1,28 +1,10 @@
 package com.kylecorry.andromeda_template.ui
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.kylecorry.andromeda.fragments.BoundFragment
-import com.kylecorry.andromeda_template.databinding.FragmentMainBinding
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import com.kylecorry.andromeda.fragments.XmlReactiveFragment
+import com.kylecorry.andromeda_template.R
 
-@AndroidEntryPoint
-class MainFragment : BoundFragment<FragmentMainBinding>() {
-
-    @Inject
-    lateinit var formatter: FormatService
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
-    override fun generateBinding(
-        layoutInflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentMainBinding {
-        return FragmentMainBinding.inflate(layoutInflater, container, false)
+class MainFragment : XmlReactiveFragment(R.layout.fragment_main) {
+    override fun onUpdate() {
+        // Do nothing
     }
 }

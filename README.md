@@ -10,8 +10,6 @@ An Android template using Andromeda
 - Onboarding screen
 - KTS gradle
 - Desugaring
-- Jitpack
-- Viewbinding
 - JUnit 5
 - Standard Android/AndroidX libraries
 - Vector app icon
@@ -19,7 +17,6 @@ An Android template using Andromeda
 - Notification channel registration
 - Room
 - Preference versioning
-- Enhanced list view
 
 # How to use
 1. Download the [create-from-template.py](./create-from-template.py) file, run it and answer the prompts

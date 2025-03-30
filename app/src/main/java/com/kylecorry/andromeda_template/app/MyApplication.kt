@@ -3,18 +3,17 @@ package com.kylecorry.andromeda_template.app
 import android.app.Application
 import com.kylecorry.andromeda.preferences.PreferenceMigration
 import com.kylecorry.andromeda.preferences.PreferenceMigrator
-import dagger.hilt.android.HiltAndroidApp
 
-@HiltAndroidApp
 class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        ServiceRegister.setup(this)
         NotificationChannels.createChannels(this)
         migratePreferences()
     }
 
-    private fun migratePreferences(){
+    private fun migratePreferences() {
         val key = "pref_version"
         val version = 0
         val migrations = listOf<PreferenceMigration>()

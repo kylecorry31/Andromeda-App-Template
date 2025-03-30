@@ -15,7 +15,7 @@ object ExceptionHandler {
         handler.bind()
 
         CustomExceptionHandler.error?.let {
-            Log.e("Trail Sense", it)
+            Log.e("Andromeda App Template", it)
             val message = BugReportEmailMessage(
                 context.getString(R.string.error_occurred),
                 context.getString(R.string.error_occurred_message) + if (BuildConfig.DEBUG) {
